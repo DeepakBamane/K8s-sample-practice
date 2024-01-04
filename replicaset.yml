@@ -1,0 +1,25 @@
+apiVersion : v2.1
+     kind: Replicaset
+       metadata:
+             name: frontend
+          labels: 
+             app: my-app
+             tier: frontend
+       spec:
+         replicas: 3
+         selector:
+            matchLables:
+               tier: frontend
+            template:
+               metadata:
+                  labels:
+                      tier: frontend
+                  spec:
+                    containers:
+                      - name: nginx-container
+                       image: nginx
+
+
+# kubectl apply -f replicaset.yml
+# kubectl get rs
+# kubectl describe name
